@@ -1,0 +1,339 @@
+/*
+ * Sticklr.js v1.4.1
+ * Sticky side panel jQuery plugin
+ * https://github.com/faisalman/sticklr-js
+ *
+ * Copyright © 2011-2012 Faisal Salman <f@faisalman.com>
+ * Dual licensed under GPLv2 & MIT
+ */
+ 
+.sticklr, 
+.sticklr * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: Helvetica, Ubuntu, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ccc;
+    vertical-align: baseline;
+}
+
+.sticklr, 
+.sticklr > li > ul {
+    list-style-type: none;
+}
+
+.sticklr {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.95);
+    border: 1px solid #535353;
+    border-left: none;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0 3px #666;
+    -moz-box-shadow: 0 0 3px #666;
+    -webkit-box-shadow: 0 0 3px #666;
+    box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    -moz-box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    -webkit-box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    width: 25px;
+    overflow: visible;
+    z-index: 90;
+	
+	/* all ie css fallback */
+	top: 0\9;
+	/* <ie7 css fallback */
+	background-color: #333 !ie;
+}
+
+.sticklr-right {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 1px solid #535353;
+}
+
+.sticklr > li {
+    position: relative;
+}
+
+.sticklr > li > a {
+    display: block;
+    width: 16px;
+    height: 16px;
+    padding: 4px;
+    background-color: #484848;
+    background-color: rgba(72, 72, 72, 0.95);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.sticklr > li {
+    border-bottom: 1px solid #282828;
+    border-right: none;    
+    border-top: 1px solid #555;
+	height: 25px;
+}
+
+.sticklr > li:first-child {
+    border-top: 1px solid #333;
+}
+
+.sticklr > li:last-child {
+    border-bottom: 1px solid #333;
+}
+
+.sticklr > li > a:hover {
+    background-color: #4f4f4f;
+}
+
+.sticklr > li > ul {
+    display: none;
+    position: absolute;
+    left: 25px;
+    top: -2px;
+    width: 180px;
+    overflow: hidden;
+    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.95);
+    border: 1px solid #535353;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 0 3px #666;
+    -moz-box-shadow: 0 0 3px #666;
+    -webkit-box-shadow: 0 0 3px #666;
+    box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    -moz-box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    -webkit-box-shadow: 0 0 3px rgba(24, 24, 24, 0.25);
+    z-index: 95;
+
+    /* ie css fallback */
+	position: static\9;
+	margin-top: -25px\9;
+	margin-bottom: 25px\9;
+	margin-left: 25px\9;
+	float: left\9;
+	/* <ie7 css fallback */
+	background-color: #333 !ie;
+}
+
+.sticklr-right > li > ul {
+    left: auto;
+    right: 25px;
+}
+
+.sticklr > li > ul:nth-child(3) {
+    left: 206px; /* (180px * 1) + 26px */
+}
+
+.sticklr > li > ul:nth-child(4) {
+    left: 387px; /* (180px * 2) + 27px */
+}
+
+.sticklr > li > ul:nth-child(5) {
+    left: 568px; /* (180px * 3) + 28px */
+}
+
+.sticklr > li > ul:nth-child(6) {
+    left: 749px; /* (180px * 4) + 29px */
+}
+
+.sticklr > li > ul:nth-child(7) {
+    left: 930px; /* (180px * 5) + 30px */
+}
+
+.sticklr-right > li > ul:nth-child(3) {
+    left: auto;
+    right: 206px;
+}
+
+.sticklr-right > li > ul:nth-child(4) {
+    left: auto;
+    right: 387px;
+}
+
+.sticklr-right > li > ul:nth-child(5) {
+    left: auto;
+    right: 568px;
+}
+
+.sticklr-right > li > ul:nth-child(6) {
+    left: auto;
+    right: 749px;
+}
+
+.sticklr-right > li > ul:nth-child(7) {
+    left: auto;
+    right: 930px;
+}
+
+.sticklr > li:hover > ul {
+    display: block;
+}
+
+.sticklr.sticklr-js > li:hover > ul {
+    display: none;
+}
+
+.sticklr > li > ul > li {
+    border-top: 1px solid #535353;
+    border-bottom: 1px solid #282828;
+    border-left: 1px solid #333;
+    min-width: 180px;
+
+    /* <ie7 css fallback */
+	border: none !ie;
+}
+
+.sticklr > li > ul > li:first-child {
+    border-top: 1px solid #535353;
+}
+
+.sticklr > li > ul > li:last-child {
+    border-bottom: 1px solid #535353;
+}
+
+.sticklr > li > ul > li:hover {
+    border-top: 1px solid transparent;
+}
+
+.sticklr > li > ul > li > a {
+    display: block;
+    padding: 8px 10px 8px 32px;
+    background-color: #484848;
+    background-color: rgba(72, 72, 72, 0.95);
+    background-position: 10px;
+    background-repeat: no-repeat;
+    color: #ccc;
+    min-height: 20px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #070707;
+    white-space: nowrap;
+}
+
+.sticklr > li > ul > li > a:hover {
+    background-color: #4f4f4f;
+}
+
+.sticklr > li > ul > li.sticklr-title {
+    background-color: #666;
+    background-image: -webkit-linear-gradient(#484848, #383838);
+    background-image: -moz-linear-gradient(#484848, #383838);
+    background-image: -o-linear-gradient(#484848, #383838);
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #282828;
+}
+
+.sticklr > li > ul > li.sticklr-title > a {
+    padding-left: 10px;
+    background-color: #282828;
+    background-color: rgba(51, 51, 51, 0.1);
+    cursor: default;
+    font-weight: bold;
+}
+
+.sticklr > li > ul > li.sticklr-title > a:hover {
+    background-color: #282828;
+    background-color: rgba(51, 51, 51, 0.1);
+}
+
+.sticklr > li > ul > li > table {
+	border-collapse:collapse;
+	border-spacing: 0;
+}
+
+.sticklr > li > ul > li > form {
+    padding: 8px 10px;
+}
+
+.sticklr > li > ul > li input,
+.sticklr > li > ul > li select, 
+.sticklr > li > ul > li textarea,
+.sticklr > li > ul > li button  {
+    background: #555;
+    color: #ccc;
+    margin: 4px 0;
+    padding: 4px;
+}
+
+.sticklr > li > ul > li input[type="text"],
+.sticklr > li > ul > li input[type="password"],
+.sticklr > li > ul > li textarea {
+    border: 1px solid #383838;
+    box-shadow: inset 0 0 3px #333;
+    -moz-box-shadow: inset 0 0 3px #333;
+    -webkit-box-shadow: inset 0 0 3px #333;
+    min-width: 150px;
+    width: auto;
+}
+
+.sticklr > li > ul > li input[type="submit"] {
+    background-color: #3f3f3f;
+    border: 1px solid #666;
+    box-shadow: 0 0 3px #282828;
+    -moz-box-shadow: 0 0 3px #282828;
+    -webkit-box-shadow: 0 0 3px #282828;
+}
+
+.sticklr-arrow {
+    position: absolute;
+    left: 25px;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #666;
+    border-right: none;
+}
+
+.sticklr-right .sticklr-arrow {
+    left: auto;
+    right: 25px;
+    border-right: 5px solid #666;
+    border-left: none;
+}
+
+/* icons */
+
+.icon-zoom {
+    background-image: url('img/pc.de-16/zoom.png');
+}
+
+.icon-tag {
+    background-image: url('img/pc.de-16/tag.png');
+}
+
+.icon-sitemap {
+    background-image: url('img/pc.de-16/sitemap.png');
+}
+
+.icon-twitter {
+    background-image: url('img/pc.de-16/twitter.png');
+}
+
+.icon-user {
+    background-image: url('img/pc.de-16/user.png');
+}
+
+.icon-addthis {
+    background-image: url('img/icondock-16/addthis.png');
+}
+
+.icon-wordpress {
+    background-image: url('img/icondock-16/wordpress-2.png');
+}
+
+.icon-facebook {
+    background-image: url('img/icondock-16/facebook.png');
+}
+
+.icon-google {
+    background-image: url('img/icondock-16/google.png');
+}
