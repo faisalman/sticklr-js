@@ -17,7 +17,7 @@ Sticky side panel jQuery plugin
 <script type="text/javascript">
     $(document).ready(function(){
         $('#example').sticklr();
-    }
+    });
 </script>
 
 <ul id="example" class="sticklr">
@@ -41,7 +41,7 @@ Sticky side panel jQuery plugin
 * General pattern: `ul > li > a[+ul > li a/form/table]`
 * To ensure CSS3 fallback, the topmost `<ul>` element must have `"sticklr"` class name
 * Create multiple column menu by adding another `<ul>` element in second level
-* Add `class="sticklr-title"` in `<li>` to create menu title
+* Add class `"sticklr-title"` in `<li>` to create menu title
 
 To hide all shown menu when an event occured you can use:
 
@@ -56,10 +56,10 @@ $().sticklr('hide');
 | `animate` | `Boolean` | `false` | Define whether the sticky panel has to be animated when scrolling/resizing browser |
 | `menuHeight` | `Number` | `20` | Define the height size of a column in pixel |
 | `menuWidth` | `Number` | `180` | Define the width size of a column in pixel |
-| `relativeTo` | `String` | `"center"` | Define vertical positioning relative to the browser viewport (top/middle/ground) |
-| `relativeGap` | `Number` | `15` | Define the relative gap size in pixel if relativeTo was set to top or bottom |
+| `relativeTo` | `String` | `"center"` | Define vertical positioning relative to the browser viewport (`top`/`middle`/`ground`) |
+| `relativeGap` | `Number` | `15` | Define the relative gap size in pixel if `relativeTo` was set to top or bottom |
 | `showOn` | `String` | `"click"` | Define event when menu must be shown. Some possible mouse events: `hover`, `click`, `dblclick` |
-| `stickTo` | `String` | `"left"` | Define placement position whether to left or right side |
+| `stickTo` | `String` | `"left"` | Define placement position whether to `left` or `right` side |
 | `tabHeight` | `Number` | `16` | Define the height size of the tab |
 | `tabWidth` | `Number` | `16` | Define the width size of the tab |
 
